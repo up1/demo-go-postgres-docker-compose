@@ -3,8 +3,10 @@
 ### Structure of project
 * app 
   * Golang + Echo + connect to PostgreSQL
+  * Use [Docker compose Wait](https://github.com/ufoscout/docker-compose-wait)
 * migrate
   * Golang + Bun + connect to PostgreSQL
+  * Use [Docker compose Wait](https://github.com/ufoscout/docker-compose-wait)
 * db
   * PostgreSQL 10.14
 
