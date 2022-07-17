@@ -1,0 +1,22 @@
+version: "3"
+services:
+  db:
+    image: postgres:10.14
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+  app:
+    build:
+      context: ./app
+    ports:
+      - 8000:80
+    command: sh -c "/wait && ./backend"  
+    environment:
+      WAIT_HOSTS: db:5432
+  migrate:
+    build:
+      context: ./migrate
+    command: sh -c "/wait && ./migrate"  
+    environment:
+      WAIT_HOSTS: db:5432
